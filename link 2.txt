@@ -1,0 +1,13 @@
+JS Class Assignments:
+1. To sort the letters in alphabetical order
+     https://jsfiddle.net/Pinkar/bmva16uz/11/
+2. find the longest word in string
+     https://jsfiddle.net/Pinkar/rwtef724/3/
+3. current Date 
+     https://jsfiddle.net/Pinkar/h6foq921/12/
+4. Program to find which 1st january is being a sunday b/w 2000 to 2050
+     https://jsfiddle.net/Pinkar/aeho830f/11/
+5. Program to calculate days left until next christmas
+     https://jsfiddle.net/Pinkar/9qb8to1e/3/
+6. Program to remove a character at the specified position of a given string and return the new string
+     https://jsfiddle.net/Pinkar/5y69dk0z/2/
