@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>Web Builder</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+.lft{
+background-color:white;
+height: 600px;
+}
+.rgt{
+background-color: black;
+height: 600px;
+}
+.space{
+background-color: grey;
+        height: 30px;
+    margin: 10px;}
+</style>
+</head>
+<body>
+
+    <div class="container-fluid">
+<header>
+<h2>Web Builder</h2>
+<div style="height: 30px; background-color: blue" ></div>
+</header>
+<div class="row par">
+<div class=" col-md-7 lft">
+
+</div>
+<div class="col-md-5 rgt ">
+<div style="margin: 2px;">
+    <div class="row">
+
+            <div class="col-md-5  " >
+            <div class="row " id="btnn">
+
+                    <div class="col-md-10" style= "  height: 30px; margin: 5px; background-color: gray;" ></div>
+
+
+            </div>
+        </div>
+
+            <div class="col-md-5 " style="margin-left: 15px;" >
+                <div class="row " id="btnnn">
+
+                    <div class="col-md-5" style= "  height: 30px; margin: 3px; background-color: gray; " ></div>
+                    <div class="col-md-5" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+
+                </div>
+            </div>
+</div>
+
+<div class="row" style="margin-top: 20%;" >
+
+    <div class="col-md-5  " >
+    <div class="row " id="btnnnn">
+
+            <div class="col-md-3" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+            <div class="col-md-3" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+            <div class="col-md-3" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+
+
+    </div>
+</div>
+    <div class="col-md-5 " style="margin-left: 15px;" >
+        <div class="row " id="btnnnnn">
+
+            <div class="col-md-2" style= "  height: 30px; margin: 3px; background-color: gray; " ></div>
+            <div class="col-md-2" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+            <div class="col-md-2" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+            <div class="col-md-2" style= "  height: 30px; margin: 3px; background-color: gray;" ></div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    
+</body>
+
+<script>
+    var btn= document.getElementById("btnn")  ;
+        var btn2=document.getElementById("btnnn");
+        var btn3=document.getElementById("btnnnn");
+        var btn4=document.getElementById("btnnnnn");
+         
+      btn.addEventListener('click',function(){
+        var newEl = document.createElement('div');
+        newEl.innerHTML = '<div class="col-md-10 space" ></div>';
+        
+        var ref = document.querySelector('.lft');
+         ref.appendChild(newEl);
+         
+     
+      })
+     
+      btn2.addEventListener('click',function(){
+        var newEl = document.createElement('div');
+        newEl.innerHTML = '<div class="row">';   
+        newEl.innerHTML += '<div class="col-md-5 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-5 space" ></div>';
+        newEl.innerHTML += '</div>';
+     var ref = document.querySelector('.lft');
+         ref.appendChild(newEl);
+         
+     
+      }) 
+
+      btn3.addEventListener('click',function(){
+        var newEl = document.createElement('div');
+        newEl.innerHTML = '<div class="row">';   
+        newEl.innerHTML += '<div class="col-md-3 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-3 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-3 space" ></div>';
+        newEl.innerHTML += '</div>';
+     var ref = document.querySelector('.lft');
+         ref.appendChild(newEl);
+         
+     
+      }) 
+      btn4.addEventListener('click',function(){
+        var newEl = document.createElement('div');
+        newEl.innerHTML = '<div class="row">';   
+        newEl.innerHTML += '<div class="col-md-2 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-2 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-2 space" ></div>';
+        newEl.innerHTML += '<div class="col-md-2 space" ></div>';
+
+        newEl.innerHTML += '</div>';
+     var ref = document.querySelector('.lft');
+         ref.appendChild(newEl);
+         
+           }) 
+        </script>
+        </html>
