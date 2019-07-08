@@ -1,0 +1,8 @@
+1.Use promise to prompt alert after 2 seconds 
+  https://jsfiddle.net/Pinkar/orq2vmba/1/
+2.Bind multiple promise callbacks 
+  https://jsfiddle.net/Pinkar/83omzbr7/6/
+3.Show error if result is returning false
+  https://jsfiddle.net/Pinkar/a34mgd1q/9/
+4.Do multiple task if error came or result returned false
+  https://jsfiddle.net/Pinkar/1ernkjq4/5/
