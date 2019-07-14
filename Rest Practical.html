@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>REST API Tutorial</title>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){   
+    $.get("https://demo8988892.mockable.io/cutomers", function(data, status){
+    var _html = '<table>';
+    _html += '<tr>';
+    _html += '<th>Customer Id</th>';
+    _html += '<th>First Name</th>';
+    _html += '<th>Last Name</th>';
+    _html += '<th>Address</th>';
+    _html += '<th>City</th>';
+    _html += '</tr>';
+
+    for(var i=0;i<data.length;i++){
+    _html += '<tr>';
+    _html += '<td>' + data[i].customerId +  '</td>';
+    _html += '<td>' + data[i].firstName +  '</td>';
+    _html += '<td>' + data[i].lastName +  '</td>';
+    _html += '<td>' + data[i].address +  '</td>';
+    _html += '<td>' + data[i].city +  '</td>';
+    _html += '</tr>';	
+    }
+
+    _html += '</table>';
+
+    $("#divCustomers").html(_html);
+  });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<div id="divCustomers"></div>
+
+<button>Populate Data</button>
+
+</body>
+</html>
