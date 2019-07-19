@@ -1,0 +1,229 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+db      0.000GB
+local   0.000GB
+> use employee
+switched to db employee
+> db.employee.insert({empid:"101",first_name:"pinkar",last_name:"kumari",gender:
+"f",salary:"30000",phone:"7974353209"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({empid:"102",first_name:"ankita",last_name:"singh",gender:"
+f",salary:"20000",phone:"3039353209"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({empid:"103",first_name:"john",last_name:"brad",gender:"m",
+salary:"40000",phone:"3039223209"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({empid:"104",first_name:"axe",last_name:"jolly",gender:"m",
+salary:"50000",phone:"3039223349"})
+WriteResult({ "nInserted" : 1 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("5d31d85ac14d0696e49be4c5"),
+        "empid" : "101",
+        "first_name" : "pinkar",
+        "last_name" : "kumari",
+        "gender" : "f",
+        "salary" : "30000",
+        "phone" : "7974353209"
+}
+{
+        "_id" : ObjectId("5d31d888c14d0696e49be4c6"),
+        "empid" : "102",
+        "first_name" : "ankita",
+        "last_name" : "singh",
+        "gender" : "f",
+        "salary" : "20000",
+        "phone" : "3039353209"
+}
+{
+        "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"),
+        "empid" : "103",
+        "first_name" : "john",
+        "last_name" : "brad",
+        "gender" : "m",
+        "salary" : "40000",
+        "phone" : "3039223209"
+}
+{
+        "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"),
+        "empid" : "104",
+        "first_name" : "axe",
+        "last_name" : "jolly",
+        "gender" : "m",
+        "salary" : "50000",
+        "phone" : "3039223349"
+}
+> db.employee.find({salary:{$gt:30000}}).sort({salary:1})
+> db.employee.find({salary:{$gt:30000}})
+> db.employee.find({salary:{$gt:"30000"}}).sort({salary:1})
+{ "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"), "empid" : "103", "first_name" :
+"john", "last_name" : "brad", "gender" : "m", "salary" : "40000", "phone" : "303
+9223209" }
+{ "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"), "empid" : "104", "first_name" :
+"axe", "last_name" : "jolly", "gender" : "m", "salary" : "50000", "phone" : "303
+9223349" }
+> db.employee.update({first_name:"pinkar"},{$set:{salary:"50000"}},{multi:true})
+
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("5d31d85ac14d0696e49be4c5"),
+        "empid" : "101",
+        "first_name" : "pinkar",
+        "last_name" : "kumari",
+        "gender" : "f",
+        "salary" : "50000",
+        "phone" : "7974353209"
+}
+{
+        "_id" : ObjectId("5d31d888c14d0696e49be4c6"),
+        "empid" : "102",
+        "first_name" : "ankita",
+        "last_name" : "singh",
+        "gender" : "f",
+        "salary" : "20000",
+        "phone" : "3039353209"
+}
+{
+        "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"),
+        "empid" : "103",
+        "first_name" : "john",
+        "last_name" : "brad",
+        "gender" : "m",
+        "salary" : "40000",
+        "phone" : "3039223209"
+}
+{
+        "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"),
+        "empid" : "104",
+        "first_name" : "axe",
+        "last_name" : "jolly",
+        "gender" : "m",
+        "salary" : "50000",
+        "phone" : "3039223349"
+}
+> db.employee.remove({first_name:"ankita"})
+WriteResult({ "nRemoved" : 1 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("5d31d85ac14d0696e49be4c5"),
+        "empid" : "101",
+        "first_name" : "pinkar",
+        "last_name" : "kumari",
+        "gender" : "f",
+        "salary" : "50000",
+        "phone" : "7974353209"
+}
+{
+        "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"),
+        "empid" : "103",
+        "first_name" : "john",
+        "last_name" : "brad",
+        "gender" : "m",
+        "salary" : "40000",
+        "phone" : "3039223209"
+}
+{
+        "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"),
+        "empid" : "104",
+        "first_name" : "axe",
+        "last_name" : "jolly",
+        "gender" : "m",
+        "salary" : "50000",
+        "phone" : "3039223349"
+}
+> db.employee.update({},{office:"Diaspark"},true,true)
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "multi update only works with $ operators"
+        }
+})
+> db.employee.update({},{$set:{office:"Diaspark"}},true,true)
+WriteResult({ "nMatched" : 3, "nUpserted" : 0, "nModified" : 3 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("5d31d85ac14d0696e49be4c5"),
+        "empid" : "101",
+        "first_name" : "pinkar",
+        "last_name" : "kumari",
+        "gender" : "f",
+        "salary" : "50000",
+        "phone" : "7974353209",
+        "office" : "Diaspark"
+}
+{
+        "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"),
+        "empid" : "103",
+        "first_name" : "john",
+        "last_name" : "brad",
+        "gender" : "m",
+        "salary" : "40000",
+        "phone" : "3039223209",
+        "office" : "Diaspark"
+}
+{
+        "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"),
+        "empid" : "104",
+        "first_name" : "axe",
+        "last_name" : "jolly",
+        "gender" : "m",
+        "salary" : "50000",
+        "phone" : "3039223349",
+        "office" : "Diaspark"
+}
+> db.employee.update({empid:"101"},{$set:{address:{street:"landmark",city:"gwali
+or",country:"india"}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({empid:"102"},{$set:{address:{street:"palasia",city:"indore
+",country:"india"}}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.employee.update({empid:"103"},{$set:{address:{street:"palasia",city:"indore
+",country:"india"}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.find().pretty()
+{
+        "_id" : ObjectId("5d31d85ac14d0696e49be4c5"),
+        "empid" : "101",
+        "first_name" : "pinkar",
+        "last_name" : "kumari",
+        "gender" : "f",
+        "salary" : "50000",
+        "phone" : "7974353209",
+        "office" : "Diaspark",
+        "address" : {
+                "street" : "landmark",
+                "city" : "gwalior",
+                "country" : "india"
+        }
+}
+{
+        "_id" : ObjectId("5d31d8b4c14d0696e49be4c7"),
+        "empid" : "103",
+        "first_name" : "john",
+        "last_name" : "brad",
+        "gender" : "m",
+        "salary" : "40000",
+        "phone" : "3039223209",
+        "office" : "Diaspark",
+        "address" : {
+                "street" : "palasia",
+                "city" : "indore",
+                "country" : "india"
+        }
+}
+{
+        "_id" : ObjectId("5d31d8dbc14d0696e49be4c8"),
+        "empid" : "104",
+        "first_name" : "axe",
+        "last_name" : "jolly",
+        "gender" : "m",
+        "salary" : "50000",
+        "phone" : "3039223349",
+        "office" : "Diaspark"
+}
+> 
